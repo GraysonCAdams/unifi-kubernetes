@@ -1,0 +1,4 @@
+helm repo add k8s-at-home https://k8s-at-home.com/charts/
+helm install k8s-at-home/unifi
+
+kubectl patch namespace unifi -p='{"spec":{"template": {"spec":  {"tolerations": [{"internal-lan": "true", "operator": "Equal", "value": "value1", "effect": "NoSchedule"}]}}}}'
